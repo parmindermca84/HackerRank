@@ -8,7 +8,6 @@ for($arr_i = 0; $arr_i < 6; $arr_i++) {
   array_walk($arr[$arr_i],'intval');
 }
 
-
 $result = [];
 $centerIndex = 1;
 for ($arr_i = 0; $arr_i < 16; $arr_i++) {
@@ -17,21 +16,18 @@ for ($arr_i = 0; $arr_i < 16; $arr_i++) {
         $centerIndex = 1;
     }
     
-    // Left index always start from 0 to complete first row
-    $leftIndex = 0;
-    $rightIndex = $arr_i;
-    
-    if ($arr_i >= 4) {
-        $leftIndex = intval($arr_i / 4);
-        
+    $leftIndex = intval($arr_i / 4);
+       
+    if ($arr_i < 4) {
+        $rightIndex = $arr_i;
+    } else {
+ 
         if ($arr_i % 4 == 0) {
             $rightIndex = 0;
-        } else {
-            $rightIndex = $rightStartIndex;
+        } else { 
+            $rightIndex++;
         }
     }
-    
-    $rightStartIndex = $rightIndex;
     
     $result[$arr_i] += FillResult($arr, $leftIndex, $rightIndex);
     
@@ -44,7 +40,6 @@ for ($arr_i = 0; $arr_i < 16; $arr_i++) {
     $result[$arr_i] += FillResult($arr, $leftIndex, $rightIndex);
         
     $centerIndex++;
-    $rightStartIndex++;
 }
 
 function FillResult($arr, $leftIndex, $rightIndex) {
@@ -59,4 +54,3 @@ function FillResult($arr, $leftIndex, $rightIndex) {
 }
 
 echo max($result);
-?>
