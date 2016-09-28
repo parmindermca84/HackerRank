@@ -29,7 +29,9 @@ class Node
 
 	/**
 	 * @author Parminder Singh <parmindermca84@gmail.com>
-
+	 *
+	 * @param int 		$data
+	 *
 	 * @throws Exception
 	 */
 	public function __construct($data)
@@ -47,6 +49,9 @@ class Solution
 {
 	/**
 	 * @author Parminder Singh <parmindermca84@gmail.com>
+	 *
+	 * @param null|Node	$Root
+	 * @param int 		$data
 	 *
 	 * @return Node
 	 * @throws Exception	 
@@ -73,15 +78,17 @@ class Solution
 	/**
 	 * @author Parminder Singh <parmindermca84@gmail.com>
 	 *
+	 * @param null|Node	$Root
+	 *
 	 * @return int	 
 	 */	
 	public function GetHeight($Root) {
-    	if ($Root == null) {
+		if ($Root == null) {
         	return -1;
     	}
 
     	return 1 + max($this->GetHeight($Root->Left), $this->GetHeight($Root->Right));
-	}
+    }
 }
 
 $MyTree = new Solution();
