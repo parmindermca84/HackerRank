@@ -1,4 +1,4 @@
-# hackerrank solutions
+# Hackerrank Solutions in PHP
 This repository contains all the solutions of hackerrank which includes the:
 
 30 Days of Code
